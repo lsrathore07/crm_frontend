@@ -1,6 +1,12 @@
+
+
 .App {
   text-align: center;
   font-family: 'Lobster', cursive;
+  background-color:rgb(202, 242, 243);  
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 /* .image {
   background-image: url("/image/01.jpeg");

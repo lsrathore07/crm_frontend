@@ -6,27 +6,40 @@ import Customer from "./pages/Customer"
 import Engineer from './pages/Engineer';
 import Admin from './pages/Admin';
 import { ThemeProvider,createTheme } from '@mui/material';
+import Auth from './Hoc/Auth';
+import React, { useState } from 'react';
+import Custom from './pages/Custom';
+
+const ThemeContext = React.createContext()
 
 function App() {
+
   const defaultMaterialTheme = createTheme();
+  const [theme,setTheme]=useState("light")
+
   return (
    
-    <div className="App  justify-content-center">
+    <div className={`App ${theme === "light" ? "bg-dark vh-100% text-light" : "text-dark"}`}>
+
       <ThemeProvider theme={defaultMaterialTheme}>
+      <ThemeContext.Provider value={{theme,setTheme}} >
       <Router>
-      <Routes>
+       <Routes >
         <Route path='/' element={<Login/>}/>
-        <Route path='/customer' element={<Customer/>}/>4
-        <Route path="/admin" element={<Admin/>}/>
-        <Route path='/engineer' element={<Engineer/>}/>
+        <Route path='/customer' element={<Auth ><Customer/></Auth>}/>4
+        <Route path='/customer/createTicket' element={<Auth ><Customer/></Auth>}/>4
+        <Route path="/admin" element={<Auth ><Admin/></Auth>}/>
+        <Route path="/admin/:userId" element={<Auth ><Admin/></Auth>}/>
+        <Route path='/engineer' element={<Auth ><Engineer/></Auth>}/>
+        <Route path='/custom' element={<Custom/>}/>4
       </Routes>
     </Router>
+    </ThemeContext.Provider>
     </ThemeProvider>
       
-    
-
     </div>
   );
 }
 
 export default App;
+export {ThemeContext}

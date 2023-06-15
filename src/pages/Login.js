@@ -14,7 +14,7 @@ function Login() {
     const [userEmail, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [togglePassword, showpassword] = useState("password")
-    const [userType, setuserType] = useState("Customer");
+    const [userType, setuserType] = useState("CUSTOMER");
     const [error, setError] = useState(false)
     const [message, setMessage] = useState("")
 
@@ -29,8 +29,15 @@ function Login() {
         return;
      }
 
-        window.location.href=`/${userType}`
+     if(userType==="ENGINEER"){
+        window.location.href="/engineer";
+    }
+    else if(userType==="CUSTOMER"){
+        window.location.href="/customer";
+    }else{
+        window.location.href="/admin";
 
+    }
     },[])
 
 
@@ -121,8 +128,14 @@ function Login() {
         const data = { userId, password }
 
         e.preventDefault()
-        userSignIn(data)
+            userSignIn(data)
             .then(res => {
+
+                if(res.data.message){
+                    setError(true)
+                    setMessage(res.data.message)
+                    return;
+                }
                 console.log(res)
                 setError(false)
                 setMessage("Login Successfull")
@@ -135,8 +148,15 @@ function Login() {
 
 
 
-                 window.location.href=`/${res.data.userType}`
-            })
+                if(res.data.userType==="ENGINEER"){
+                    window.location.href="/engineer";
+                }
+                else if(res.data.userType==="CUSTOMER"){
+                    window.location.href="/customer";
+                }else{
+                    window.location.href="/admin";
+        
+                }            })
             .catch(err => {
                 if (err.response.status){
 
@@ -157,7 +177,7 @@ function Login() {
 
     return (
      <div style={{
-        backgroundImage : `url("https://img.freepik.com/free-photo/rpa-concept-with-blurry-hand-touching-screen_23-2149311914.jpg?w=996&t=st=1684000926~exp=1684001526~hmac=9c7c7b3fe6756263d16bb867143c27837b61065e0dc35013bb6ab22472bf6b9c")`,
+        backgroundColor:'Highlight',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
     }}
@@ -190,15 +210,15 @@ function Login() {
 
                     {signUp &&
                         <DropdownButton
-                        title={userType ? userType :"CUSTOMER"} // Set the default value here
+                        title={userType} // Set the default value here
                         id="userId"
                         variant="light"
-                        align="mid"
+    
                         onSelect={changeuserType}
                       >
-                        <Dropdown.Item eventKey="CUSTOMER">Customer</Dropdown.Item>
-                        <Dropdown.Item eventKey="ADMIN">Admin</Dropdown.Item>
-                        <Dropdown.Item eventKey="ENGINEER">Engineer</Dropdown.Item>
+                        <Dropdown.Item eventKey="CUSTOMER">CUSTOMER</Dropdown.Item>
+                        <Dropdown.Item eventKey="ADMIN">ADMIN</Dropdown.Item>
+                        <Dropdown.Item eventKey="ENGINEER">ENGINEER</Dropdown.Item>
                       </DropdownButton>
                     }
                     <div className="input-group ">
