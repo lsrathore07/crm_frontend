@@ -1,7 +1,6 @@
 import { CNavItem,   CSidebarToggler, CSidebar,  CSidebarNav, CNavTitle } from "@coreui/react";
 import { logout } from "../handlers/logoutHandler";
 import { Link } from "react-scroll";
-import { useContext } from "react";
 
 
 const Sidebar = () => {
@@ -45,12 +44,10 @@ const userType=localStorage.getItem("userType")
                     </CNavItem>
                     </Link>
                     
-                    <div onClick={logout}>
-                    <CNavItem href="#">
-                        <i className="bi bi-box-arrow-left text-white m-2 p-2"/>
-                        Logout
-                    </CNavItem>
+                    <div style={{cursor:"pointer"}} className="d-flex align-item-center mx-2" onClick={logout}>
                     
+                        <i className="bi bi-box-arrow-left text-white m-4"/>
+                        <div className="text-decoration-none text-white my-4 ">Logout</div>
                     </div>
                     
                     

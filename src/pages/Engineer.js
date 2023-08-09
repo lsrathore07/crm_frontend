@@ -8,37 +8,37 @@ import useFetchTicket from "../hooks/fetchTickets";
 import useTicketUpdateHook from "../hooks/useTicketsUpdate";
 import { ThemeContext } from "../App";
 
-function Engineer(){
- 
-  const [ticketDetails,fetchTickets]=useFetchTicket()
+function Engineer() {
+
+  const [ticketDetails, fetchTickets] = useFetchTicket()
   const { editTicket, selectCurrTicket, ticketUpdateModal, closeTicketUpdateModal, updateTicketFn, onTicketUpdate } = useTicketUpdateHook(fetchTickets)
 
-  const {theme}=useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
-      return (
-        <div className={(theme==="light")?" bg-dark text-white":"  text-black"} >
-                <div className="row">
+  return (
+    <div className={(theme === "light") ? " bg-dark text-white" : "  text-black"} >
+      <div className="row">
         <div className="col-1"></div>
         <Sidebar />
       </div>
       <div className="col my-4">
-      <div className="container">
-      <StatusDashboard ticketDetails={ticketDetails}/>
-        <TicketsTable ticketDetails={ticketDetails} title={"TICKETS ASSIGNED TO YOU..."} editTicket={editTicket}/>
-        <TicketUpdateModal 
-            ticketUpdateModal={ticketUpdateModal} 
+        <div className="container">
+          <StatusDashboard ticketDetails={ticketDetails} />
+          <TicketsTable ticketDetails={ticketDetails} title={"TICKETS ASSIGNED TO YOU..."} editTicket={editTicket} />
+          <TicketUpdateModal
+            ticketUpdateModal={ticketUpdateModal}
             closeTicketUpdateModal={closeTicketUpdateModal}
             updateTicketFn={updateTicketFn}
             selectCurrTicket={selectCurrTicket}
             onTicketUpdate={onTicketUpdate}
-            />
-        </div> 
-        <div >
-            <PieChart ticketDetails={ticketDetails}/> 
-            </div>
-      </div>
+          />
         </div>
-    )
+        <div >
+          <PieChart ticketDetails={ticketDetails} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Engineer;

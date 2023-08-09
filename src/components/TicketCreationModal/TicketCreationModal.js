@@ -32,8 +32,8 @@ return <Modal show={props.show} onHide={props.onClose}style={{
     borderColor: "rgb(33, 232, 254)",
     fontFamily: "Lobster, cursive",
   }}>
-    <Modal.Header closeButton style={{fontSize:"2rem",backgroundColor:"black"}}> 
-        <Modal.Title style={{color:"#fff"}}>
+    <Modal.Header closeButton style={{fontSize:"2rem",backgroundColor:"whitesmoke"}}> 
+        <Modal.Title style={{color:"black"}}>
             Create Ticket
         </Modal.Title>
     </Modal.Header>
@@ -41,7 +41,7 @@ return <Modal show={props.show} onHide={props.onClose}style={{
         <form onSubmit={createTicket}>
             <div className="input-group mb-2">
                 <span style={{
-                    backgroundColor:"#2E86C1",
+                    backgroundColor:"#000",
                     color:"floralwhite",
                     minWidth:"92px",
                     fontSize:"17px"              
@@ -51,7 +51,7 @@ return <Modal show={props.show} onHide={props.onClose}style={{
 
             <div className="input-group  mb-2">
                 <span style={{
-                    backgroundColor:"#2E86C1",
+                    backgroundColor:"#000",
                     color:"floralwhite",
                     minWidth:"92px",
                     fontSize:"17px"              

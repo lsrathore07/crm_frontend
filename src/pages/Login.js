@@ -3,12 +3,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { FaEye } from "react-icons/fa";
 import {userSignIn,userSignUp} from "../Api/auth"
-
+import Image from "../images/1.jpg"
 
 function Login() {
 
     const [signUp, setsignUp] = useState(false)
-
     const [userId, setuserid] = useState("")
     const [userName, setName] = useState("")
     const [userEmail, setEmail] = useState("")
@@ -174,13 +173,15 @@ function Login() {
 
     }
 
+    
 
     return (
-     <div style={{
-        backgroundColor:'Highlight',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-    }}
+        <div style={{
+            backgroundImage:`url(${Image})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+          }}
          className="d-flex justify-content-center align-items-center vh-100"
          >
             <div className="card p-3 rounded-3 shadow " style={{ background:"rgba(0 , 0 , 0 ,0.7)" , width: '25rem' }}>

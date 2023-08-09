@@ -47,7 +47,8 @@ const useUsersUpdateHook = () => {
   
     const updateUserFn = (e) => {
       e.preventDefault()
-  
+      const url=`/admin`
+      navigate(url) 
       const userData = {
         _id: selectCurrUser._id,
         status: selectCurrUser.userStatus

@@ -13,8 +13,8 @@ const UserUpdateModal=(props)=>{
           borderColor: "rgb(33, 232, 254)",
           fontFamily: "Lobster, cursive",
         }}>
-              <Modal.Header closeButton style={{backgroundColor:"black"}}>
-                <Modal.Title style={{color: "#fff", fontSize: "2rem" }}>Edit Details </Modal.Title>
+              <Modal.Header closeButton style={{backgroundColor:"#fff"}}>
+                <Modal.Title style={{color: "#000", fontSize: "2rem" }}>Edit Details </Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <form onSubmit={updateUserFn}>
@@ -29,7 +29,7 @@ const UserUpdateModal=(props)=>{
                         minWidth:"92px",
                         color:"#fff"
                       }} className="input-group-text"> Name : </span>
-                      <input type="text" disabled name="name" value={selectCurrUser.name} />
+                      <input type="text" className="form-control" disabled name="name" value={selectCurrUser.name} />
                     </div>
 
                     <div className="input-group mb-3">
@@ -38,7 +38,7 @@ const UserUpdateModal=(props)=>{
                         minWidth:"92px",
                         color:"#fff"
                       }}  className="input-group-text"> User Id : </span>
-                      <input type="text" disabled name="userId" value={selectCurrUser.userId} />
+                      <input type="text" className="form-control"  disabled name="userId" value={selectCurrUser.userId} />
                     </div>
 
                     <div className="input-group mb-3">
@@ -47,7 +47,7 @@ const UserUpdateModal=(props)=>{
                         minWidth:"92px",
                         color:"#fff"
                       }}  className="input-group-text"> Email : </span>
-                      <input type="text" disabled name="email" value={selectCurrUser.email} />
+                      <input type="text" className="form-control"  disabled name="email" value={selectCurrUser.email} />
                     </div>
 
                     <div className="input-group mb-3">

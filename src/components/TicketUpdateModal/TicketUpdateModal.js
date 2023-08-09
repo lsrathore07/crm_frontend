@@ -2,11 +2,13 @@ import { Modal,Button } from "react-bootstrap";
 import fetchDisabledFields from "../../utils/fetchDisabledFieldData";
 import { ThemeContext } from "../../App";
 import { useContext } from "react";
+import useFetchTicket from "../../hooks/fetchTickets";
 
 const TicketUpdateModal=(props)=>{
 
     const {ticketUpdateModal,closeTicketUpdateModal,selectCurrTicket,onTicketUpdate,updateTicketFn}=props
     const {theme}=useContext(ThemeContext)
+    const fetchTickets =useFetchTicket()
     
     const disabledField = fetchDisabledFields()
 
@@ -18,10 +20,10 @@ const TicketUpdateModal=(props)=>{
       borderColor: "rgb(33, 232, 254)",
       fontFamily: "Lobster, cursive",
     }}>
-    <Modal.Header closeButton  style={{ backgroundColor: "black" }}>
-      <Modal.Title style={{ color: "#fff", fontSize: "2rem" }}>Edit Details </Modal.Title>
+    <Modal.Header closeButton  style={{ backgroundColor: "whitesmoke" }}>
+      <Modal.Title style={{ color: "#000", fontSize: "2rem" }}>Edit Details </Modal.Title>
     </Modal.Header>
-    <Modal.Body style={{backgroundColor:(theme==="light"?"whitesmoke":"black")}}>
+    <Modal.Body >
       <form onSubmit={updateTicketFn}>
         <div className="p-1">
           <h5
@@ -102,9 +104,7 @@ const TicketUpdateModal=(props)=>{
         
       </form>
     </Modal.Body>
-    <Modal.Footer>
-
-    </Modal.Footer>
+   
   </Modal>
 )
 }

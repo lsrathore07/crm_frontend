@@ -1,3 +1,4 @@
+import "../components/button/Btn.css"
 import { useContext, useEffect } from "react";
 import TicketsTable from "../MaterialTable/ticketsTable";
 import Sidebar from "../components/Sidebar";
@@ -45,7 +46,7 @@ function Customer() {
       <div className="col my-4">
       <div className="container">
       <StatusDashboard ticketDetails={ticketDetails}/>
-       <input className="m-4 p-3 bg-warning" type="submit" value="Raise Ticket" onClick={openCreateTicketModal}/>
+       <input className="button m-4 p-3 " type="submit" value="Raise Ticket" onClick={openCreateTicketModal}/>
        <TicketCreationModal show={createTicketModal} onClose={closeCreateTicketModal}/>
         
         <TicketsTable ticketDetails={ticketDetails} title={"TICKETS RAISED BY YOU..."} editTicket={editTicket}/>

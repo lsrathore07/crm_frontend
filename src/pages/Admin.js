@@ -77,7 +77,7 @@ function Admin() {
           </div>
           <hr />
           <div style={{ maxWidth: "100%" }} className="m-2" >
-            <TicketsTable editTicket={editTicket} title={"TICKET RECORDS"} ticketDetails={ticketDetails}/>
+            <TicketsTable editTicket={editTicket} fetchTickets={fetchTickets} title={"TICKET RECORDS"} ticketDetails={ticketDetails}/>
             <TicketUpdateModal 
             ticketUpdateModal={ticketUpdateModal} 
             closeTicketUpdateModal={closeTicketUpdateModal}

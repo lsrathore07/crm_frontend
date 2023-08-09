@@ -5,6 +5,7 @@ import { deleteTicket } from "../Api/ticket";
 
 
 function TicketsTable(props) {
+  console.log(props)
 const DeleteTicket=(_id)=>{
   Swal.fire({
     title: "Are you sure?",
@@ -17,10 +18,7 @@ const DeleteTicket=(_id)=>{
   }).then(async (result)=>{
     if(result.value) {
       const isticketDeleted = await deleteTicketApi(_id)
-
-      if(isticketDeleted){
-        props.onTicketsdeleted();
-      }
+      props.fetchTickets()    
     }
   })
 }

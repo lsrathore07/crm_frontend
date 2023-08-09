@@ -26,7 +26,7 @@ const StatusDashboard=(props)=>{
       <div  >
                
     <div className="container">
-      <h2 className="m-4 " >Welcome {userName}</h2>
+      <h1 className="m-4 text-warning" >Welcome {userName}</h1>
       <p className="text-warning">Take a quick look at your {localStorage.getItem("userType")} stats</p>
       <div className="row">
         <div className="col-xs-12 col-lg-3 col-md-6 my-1">
